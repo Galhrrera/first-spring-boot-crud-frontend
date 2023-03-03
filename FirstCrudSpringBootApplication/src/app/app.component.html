@@ -1,2 +1,9 @@
+<form [formGroup]="personasForm" (ngSubmit)="guardarPersona()">
+    <div class="formGroup">
+        <label for="nombre">Nombre</label>
+        <input type="text" formControlName="nombre" class="formControl" name="nombre">
+    </div>
+</form>
+
 
 <router-outlet></router-outlet>

@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     public paisesService: PaisesService,
     public personasService: PersonasService,
     public estadosService: EstadosService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.personasForm = this.fb.group({
@@ -27,5 +27,9 @@ export class AppComponent implements OnInit {
       edad: ['', Validators.required],
       estado: ['', Validators.required]
     });
+  }
+
+  guardarPersona(): void {
+
   }
 }
