@@ -1,9 +1,26 @@
-<form [formGroup]="personasForm" (ngSubmit)="guardarPersona()">
-    <div class="formGroup">
-        <label for="nombre">Nombre</label>
-        <input type="text" formControlName="nombre" class="formControl" name="nombre">
-    </div>
-</form>
+<div class="containerForm crearPersonaForm">
+    <h2 class="titulo">Crear Persona</h2>
+    <form [formGroup]="personasForm" (ngSubmit)="guardarPersona()">
+        <div class="formGroup">
+            <label for="nombre">Nombre</label>
+            <input type="text" formControlName="nombre" class="formControl" name="nombre">
+        </div>
+        <div class="formGroup">
+            <label for="apelido">Apellido</label>
+            <input type="text" formControlName="apellido" class="formControl" name="apellido">
+        </div>
+        <div class="formGroup">
+            <label for="edad">Edad</label>
+            <input type="number" formControlName="edad" class="formControl" name="edad">
+        </div>
+        <div class="formGroup">
+            <label for="pais">Pais</label>
+            <input type="text" formControlName="pais" class="formControl" name="pais">
+        </div>
+
+        <button type="button" class="btn btn-primary btn-guardar">GUARDAR</button>
+    </form>
+</div>
 
 
 <router-outlet></router-outlet>

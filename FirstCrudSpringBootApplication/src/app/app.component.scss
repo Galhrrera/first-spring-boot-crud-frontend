@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+
+$borders: #303841;
+$backGroundColor: #B33144;
+$shadows: #3a4750;
+$textColor: whitesmoke;
+$inputFocus: #f1656584;
+$btnBackGroundColor: #d75813;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: $backGroundColor;
+    color: $textColor;
+}
+
+.containerForm {
+    padding-top: 10%;
+    padding-left: 25%;
+    padding-right: 25%;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: large;
+    height: 100vh;
+
+    .titulo {
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 700;
+        padding-bottom: 20px;
+    }
+
+    form .formGroup {
+
+        input {
+            border: none;
+            background-color: $textColor;
+            color: $borders;
+            width: 100%;
+            max-width: 400px;
+            font-size: 16px;
+            border-radius: 5px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-guardar {
+        background-color: $textColor;
+        border: none;
+        color: $backGroundColor;
+        padding: 12px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.7s ease;
+        margin-top: 30px;
+        font-weight: 600;
+
+
+        &:hover {
+            background-color: $backGroundColor;
+            color: $textColor;
+            border: 2px solid $textColor;
+        }
+
+    }
+}
