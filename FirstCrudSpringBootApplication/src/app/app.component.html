@@ -15,7 +15,15 @@
         </div>
         <div class="formGroup">
             <label for="pais">Pais</label>
-            <input type="text" formControlName="pais" class="formControl" name="pais">
+            <select  formControlName="pais" class="formControl" name="pais" id="pais" class="formControl formControlOpts" (change)="showEstadosById($event)">
+                <option [value]="item.id" *ngFor="let item of paises">{{item.nombre}}</option>
+            </select>
+        </div>
+        <div class="formGroup">
+            <label for="estado">Estado</label>
+            <select  formControlName="estado" class="formControl" name="estado" id="estado" class="formControl formControlOpts">
+                <option value="item.id" *ngFor="let item of estados">{{item.nombre}}</option>
+            </select>
         </div>
 
         <button type="button" class="btn btn-primary btn-guardar">GUARDAR</button>

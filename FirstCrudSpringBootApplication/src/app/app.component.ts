@@ -12,6 +12,8 @@ import { PaisesService } from './services/paises/paises.service';
 export class AppComponent implements OnInit {
 
   personasForm!: FormGroup;
+  paises: any;
+  estados: any;
 
   constructor(
     public fb: FormBuilder,
@@ -25,11 +27,30 @@ export class AppComponent implements OnInit {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       edad: ['', Validators.required],
+      pais: ['', Validators.required],
       estado: ['', Validators.required]
     });
+
+    this.paisesService.getAllPaises().subscribe(resp=>{
+      this.paises = resp;
+    },
+    error=>{
+      console.error(error)
+    })
   }
 
   guardarPersona(): void {
 
+  }
+
+  showEstadosById(event: Event){
+    const target = event.target as HTMLInputElement;
+    const value = target.value;
+    this.estadosService.getAllEstadosByPais(parseInt(value)).subscribe(resp=>{
+      this.estados = resp;
+    },
+    error=>{
+      console.error(error)
+    })
   }
 }

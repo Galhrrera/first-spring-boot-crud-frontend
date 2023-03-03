@@ -47,6 +47,24 @@ $btnBackGroundColor: #d75813;
             }
         }
 
+        select {
+            background-color: $textColor;
+            color: $borders;
+            width: 100%;
+            max-width: 400px;
+            font-size: 16px;
+            border-radius: 5px;
+
+            option {
+                background-color: $textColor;
+                color: $borders;
+                width: 100%;
+                max-width: 400px;
+                font-size: 16px;
+                border-radius: 5px;
+            }
+        }
+
         padding: 5px;
         display: flex;
         flex-direction: column;
