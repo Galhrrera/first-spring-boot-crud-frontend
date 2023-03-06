@@ -29,28 +29,33 @@ export class AppComponent implements OnInit {
       edad: ['', Validators.required],
       pais: ['', Validators.required],
       estado: ['', Validators.required]
-    });
+    });;
 
-    this.paisesService.getAllPaises().subscribe(resp=>{
+    this.paisesService.getAllPaises().subscribe(resp => {
       this.paises = resp;
     },
-    error=>{
-      console.error(error)
+      error => {
+        console.error(error)
+      })
+
+    this.personasForm.get('pais')?.valueChanges.subscribe(value=>{
+      this.estadosService.getAllEstadosByPais(value).subscribe(resp => {
+        this.estados = resp;
+      },
+        error => {
+          console.log("ups")
+          console.error(error)
+        })
     })
   }
 
   guardarPersona(): void {
+    console.log(this.personasForm.value)
+    this.personasService.savePersona(this.personasForm.value).subscribe(resp => {
 
-  }
-
-  showEstadosById(event: Event){
-    const target = event.target as HTMLInputElement;
-    const value = target.value;
-    this.estadosService.getAllEstadosByPais(parseInt(value)).subscribe(resp=>{
-      this.estados = resp;
     },
-    error=>{
-      console.error(error)
-    })
+      error => {
+        console.error(error)
+      })
   }
 }
