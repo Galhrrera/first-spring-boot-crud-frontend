@@ -43,7 +43,6 @@ export class AppComponent implements OnInit {
         this.estados = resp;
       },
         error => {
-          console.log("ups")
           console.error(error)
         })
     })
@@ -52,7 +51,7 @@ export class AppComponent implements OnInit {
   guardarPersona(): void {
     console.log(this.personasForm.value)
     this.personasService.savePersona(this.personasForm.value).subscribe(resp => {
-
+      this.personasForm.reset()
     },
       error => {
         console.error(error)
