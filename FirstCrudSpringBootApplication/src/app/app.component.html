@@ -1,5 +1,5 @@
 <div class="containerForm crearPersonaForm">
-    <h2 class="titulo">Crear Persona</h2>
+    <h2 class="titulo">CREAR PERSONA</h2>
     <form [formGroup]="personasForm" (ngSubmit)="guardarPersona()">
         <div class="formGroup">
             <label for="nombre">Nombre</label>
@@ -15,20 +15,53 @@
         </div>
         <div class="formGroup">
             <label for="pais">Pais</label>
-            <select  formControlName="pais" class="formControl" name="pais" id="pais" class="formControl formControlOpts">
+            <select formControlName="pais" class="formControl" name="pais" id="pais"
+                class="formControl formControlOpts">
                 <option [ngValue]="item.id" *ngFor="let item of paises">{{item.nombre}}</option>
             </select>
         </div>
         <div class="formGroup">
             <label for="estado">Estado</label>
-            <select  formControlName="estado" class="formControl" name="estado" id="estado" class="formControl formControlOpts">
+            <select formControlName="estado" class="formControl" name="estado" id="estado"
+                class="formControl formControlOpts">
                 <option [ngValue]="item.id" *ngFor="let item of estados">{{item.nombre}}</option>
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-guardar">GUARDAR</button>
+        <button type="submit" class="btn btn-primary btn-guardar" [disabled]="personasForm.invalid">GUARDAR</button>
     </form>
 </div>
 
+<div class="personas">
+    <h2 class="titulo">PERSONAS REGISTRADAS</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Pais</th>
+                <th>Estado</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of personas">
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.apellido}}</td>
+                <td>{{item.edad}}</td>
+                <td>{{item.pais}}</td>
+                <td>{{item.estado}}</td>
+                <td>
+                    <button type="button" class="btn btn-success">EDITAR</button>
+                    <button type="button" class="btn btn-danger" (click)="eliminarPersona(item)">ELIMINAR</button>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <router-outlet></router-outlet>
